@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/C:\Users\Lauren Ebene\Documents\PartieRDV\img"/>
+    <qresource prefix="/">
+        <file>img/medical.jpg</file>
+        <file>img/secretariat1.jpg</file>
+        <file>img/secretariat2.jpg</file>
+        <file>img/s.jpg</file>
+    </qresource>
+</RCC>
