@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>897</width>
+    <height>641</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Smart Medical Office-Gestion Medicaments</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>180</y>
+      <width>391</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CLICK HERE !!!!!</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>897</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAfficher">
+    <property name="title">
+     <string>Afficher</string>
+    </property>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionAjouter_medicamant"/>
+    <addaction name="actionModifier_medicament"/>
+    <addaction name="actionSupprimer_medicament"/>
+   </widget>
+   <widget class="QMenu" name="menucommander">
+    <property name="title">
+     <string>commander</string>
+    </property>
+    <addaction name="actionsaisir_demande"/>
+   </widget>
+   <addaction name="menuAfficher"/>
+   <addaction name="menuOptions"/>
+   <addaction name="menucommander"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>X</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+  </action>
+  <action name="actionAjouter_medicamant">
+   <property name="text">
+    <string>Ajouter médicamant</string>
+   </property>
+  </action>
+  <action name="actionModifier_medicament">
+   <property name="text">
+    <string>Modifier médicament</string>
+   </property>
+  </action>
+  <action name="actionSupprimer_medicament">
+   <property name="text">
+    <string>Supprimer médicament</string>
+   </property>
+  </action>
+  <action name="actionsaisir_demande">
+   <property name="text">
+    <string>saisir demande de devis</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
