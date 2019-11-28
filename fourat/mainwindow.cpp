@@ -1,21 +1,20 @@
-#include "mainwindow.h"
+ #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "patient.h"
 #include <QMessageBox>
-#include <QMessageBox>
-#include <QPixmap>
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
 ui->setupUi(this);
 ui->tabpatient->setModel(tmppatient.afficher());
-QPixmap pix("C:/Users/foura/OneDrive/Bureau/New folder (3)/Atelier_Crud_Vf/pic/aa.jpg");
-int w=ui->label_pic->width();
-int h=ui->label_pic->height();
-
-ui->label_pic->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+QPixmap pix("C:/Users/Admin/Desktop/ok/Atelier_Crud_Vf/img/pic.jpg");
+        ui->p1->setPixmap(pix);
+        ui->p2->setPixmap(pix);
+        ui->p3->setPixmap(pix);
+        ui->p4->setPixmap(pix);
+        ui->p5->setPixmap(pix);
+        ui->p6->setPixmap(pix);
 
 }
 
@@ -23,7 +22,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 void MainWindow::on_pb_ajouter_clicked()
 {
     int id = ui->nump->text().toInt();
@@ -101,7 +99,6 @@ QMessageBox::information(nullptr, QObject::tr("Dossier modifié"),
 
 
 
-
 void MainWindow::on_rechercher_clicked()
 {
     QString rech;
@@ -115,4 +112,35 @@ void MainWindow::on_rechercher_clicked()
      qry->exec();
      model->setQuery(*qry);
      ui->tabr->setModel(model);
+}
+
+void MainWindow::on_rech_returnPressed()
+{
+    QString rech;
+    rech=ui->rech->text();
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery* qry=new QSqlQuery();
+
+     qry->prepare("SELECT * from patient where nump like '"+rech+"'");
+     qry->bindValue("rech",rech);
+     qry->exec();
+     model->setQuery(*qry);
+     ui->tabr->setModel(model);
+}
+
+
+void MainWindow::on_rechercher_2_clicked()
+{
+    QString rech;
+    rech=ui->rech2->text();
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery* qry=new QSqlQuery();
+
+     qry->prepare("SELECT * from medecin where cin like '"+rech+"'");
+     qry->bindValue("rech",rech);
+     qry->exec();
+     model->setQuery(*qry);
+     ui->tabr2->setModel(model);
 }

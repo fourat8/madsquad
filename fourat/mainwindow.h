@@ -26,6 +26,10 @@ private slots:
 
     void on_rechercher_clicked();
 
+    void on_rech_returnPressed();
+
+    void on_rechercher_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     patient tmppatient;

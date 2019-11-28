@@ -40,7 +40,7 @@ patient::patient(int nump,QString nom,QString prenom,QString drdv,QString maladi
     query.bindValue(":prenom", prenom);
     query.bindValue(":drdv", drdv);
     query.bindValue(":maladie", maladie);
-    query.bindValue(":observation", maladie);
+    query.bindValue(":observation", observation);
 
 
     return    query.exec();
@@ -95,7 +95,7 @@ patient::patient(int nump,QString nom,QString prenom,QString drdv,QString maladi
     {
         QSqlQuery query;
         QString res= QString::number(nump);
-        query.prepare("update patient set nom=:nom,prenom=:prenom,drdv=:drdv,maladie=:maladie where nump= :nump");
+        query.prepare("update patient set nom=:nom,prenom=:prenom,drdv=:drdv,maladie=:maladie,observation=:observation where nump= :nump");
         query.bindValue(":nump", res);
         query.bindValue(":nom", this->nom);
         query.bindValue(":prenom", this->prenom);

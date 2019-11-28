@@ -6,35 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>883</width>
-    <height>709</height>
+    <width>938</width>
+    <height>681</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Gestion des étudiants</string>
+   <string>Gestion des patients</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTabWidget" name="tabWidget_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>-20</y>
+      <y>10</y>
       <width>801</width>
-      <height>671</height>
+      <height>591</height>
      </rect>
     </property>
-    <property name="sizeIncrement">
-     <size>
-      <width>2000</width>
-      <height>2444</height>
-     </size>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(0,0,127);</string>
     </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Gestion des Etudiants</string>
+      <string>Gestion des patients</string>
      </attribute>
      <widget class="QTabWidget" name="tabWidget">
       <property name="geometry">
@@ -42,8 +39,11 @@
         <x>0</x>
         <y>20</y>
         <width>771</width>
-        <height>601</height>
+        <height>531</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(0,0,127);</string>
       </property>
       <property name="tabPosition">
        <enum>QTabWidget::North</enum>
@@ -52,7 +52,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -73,11 +73,14 @@
        <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
          <rect>
-          <x>70</x>
-          <y>100</y>
+          <x>100</x>
+          <y>30</y>
           <width>591</width>
           <height>461</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:rgb(0,0,127);</string>
         </property>
         <property name="title">
          <string>Ajouter un dossier</string>
@@ -232,36 +235,57 @@
            <height>23</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.631, y1:0.420455, x2:1, y2:0, stop:1 rgba(0, 0, 127, 255));
+color: rgb(255, 255, 255);</string>
+         </property>
          <property name="text">
           <string>Ajouter</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_pic">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
+        <widget class="QLabel" name="pic_1">
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-150</y>
+           <y>20</y>
            <width>771</width>
-           <height>800</height>
+           <height>521</height>
           </rect>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
          </property>
          <property name="text">
           <string/>
          </property>
-         <property name="pixmap">
-          <pixmap>pic/aa.jpg</pixmap>
-         </property>
         </widget>
+        <zorder>pic_1</zorder>
+        <zorder>nom</zorder>
+        <zorder>label_16</zorder>
+        <zorder>label_18</zorder>
+        <zorder>drdv</zorder>
+        <zorder>label_19</zorder>
+        <zorder>maladie</zorder>
+        <zorder>obs</zorder>
+        <zorder>label_20</zorder>
+        <zorder>label_21</zorder>
+        <zorder>prenom</zorder>
+        <zorder>label_22</zorder>
+        <zorder>nump</zorder>
+        <zorder>pb_ajouter</zorder>
        </widget>
+       <widget class="QLabel" name="p1">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>771</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>p1</zorder>
+       <zorder>groupBox_2</zorder>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -277,6 +301,21 @@
          </rect>
         </property>
        </widget>
+       <widget class="QLabel" name="p2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>771</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>p2</zorder>
+       <zorder>tabpatient</zorder>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -285,8 +324,8 @@
        <widget class="QLineEdit" name="lineEdit_id_2">
         <property name="geometry">
          <rect>
-          <x>140</x>
-          <y>30</y>
+          <x>350</x>
+          <y>90</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -295,8 +334,8 @@
        <widget class="QLabel" name="label_4">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>30</y>
+          <x>230</x>
+          <y>90</y>
           <width>101</width>
           <height>16</height>
          </rect>
@@ -308,16 +347,37 @@
        <widget class="QPushButton" name="pb_supprimer">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>140</y>
+          <x>360</x>
+          <y>150</y>
           <width>75</width>
           <height>23</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:0.631, y1:0.420455, x2:1, y2:0, stop:1 rgba(0, 0, 127, 255));
+color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>Supprimer</string>
         </property>
        </widget>
+       <widget class="QLabel" name="p3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>771</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>p3</zorder>
+       <zorder>lineEdit_id_2</zorder>
+       <zorder>label_4</zorder>
+       <zorder>pb_supprimer</zorder>
       </widget>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -439,6 +499,10 @@
            <height>28</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0.631, y1:0.420455, x2:1, y2:0, stop:1 rgba(0, 0, 127, 255));
+color: rgb(255, 255, 255);</string>
+         </property>
          <property name="text">
           <string>Confirmer</string>
          </property>
@@ -490,6 +554,21 @@
          </property>
         </widget>
        </widget>
+       <widget class="QLabel" name="p4">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>771</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <zorder>p4</zorder>
+       <zorder>groupBox</zorder>
       </widget>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -498,18 +577,18 @@
        <widget class="QTableView" name="tabr">
         <property name="geometry">
          <rect>
-          <x>15</x>
-          <y>100</y>
+          <x>10</x>
+          <y>220</y>
           <width>741</width>
-          <height>231</height>
+          <height>91</height>
          </rect>
         </property>
        </widget>
        <widget class="QLabel" name="label_5">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>40</y>
+          <x>150</x>
+          <y>140</y>
           <width>101</width>
           <height>16</height>
          </rect>
@@ -521,8 +600,8 @@
        <widget class="QLineEdit" name="rech">
         <property name="geometry">
          <rect>
-          <x>140</x>
-          <y>40</y>
+          <x>270</x>
+          <y>140</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -531,27 +610,143 @@
        <widget class="QPushButton" name="rechercher">
         <property name="geometry">
          <rect>
-          <x>330</x>
-          <y>40</y>
+          <x>460</x>
+          <y>140</y>
           <width>93</width>
           <height>28</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:0.631, y1:0.420455, x2:1, y2:0, stop:1 rgba(0, 0, 127, 255));
+color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string>Confirmer</string>
         </property>
        </widget>
+       <widget class="QLabel" name="p5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>771</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>p5</zorder>
+       <zorder>tabr</zorder>
+       <zorder>label_5</zorder>
+       <zorder>rech</zorder>
+       <zorder>rechercher</zorder>
+      </widget>
+      <widget class="QWidget" name="tab_7">
+       <attribute name="title">
+        <string>Rechercher un ordonnance</string>
+       </attribute>
+       <widget class="QLineEdit" name="rech2">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>150</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="rechercher_2">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>150</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: qlineargradient(spread:pad, x1:0.631, y1:0.420455, x2:1, y2:0, stop:1 rgba(0, 0, 127, 255));
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Confirmer</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="tabr2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>220</y>
+          <width>741</width>
+          <height>91</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>150</y>
+          <width>101</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Numero du dossier</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="p6">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>771</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>p6</zorder>
+       <zorder>rech2</zorder>
+       <zorder>rechercher_2</zorder>
+       <zorder>tabr2</zorder>
+       <zorder>label_7</zorder>
       </widget>
      </widget>
     </widget>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>801</width>
+      <height>591</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>tabWidget_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>883</width>
+     <width>938</width>
      <height>21</height>
     </rect>
    </property>
