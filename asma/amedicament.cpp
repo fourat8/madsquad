@@ -10,7 +10,8 @@ Amedicament::Amedicament(QWidget *parent) :
 {
     ui->setupUi(this);
      ui->tablemedicament->setModel(tmpmedicament.afficher());
-}
+     QPixmap pix(":/img/img/doctor-gp-netherlands.jpg");
+     ui->label_10->setPixmap(pix);}
 
 Amedicament::~Amedicament()
 {
@@ -48,6 +49,7 @@ void Amedicament::on_pushButton_ok_clicked()
       QMessageBox::critical(nullptr, QObject::tr("Ajouter un médicament"),
                   QObject::tr("Erreur !.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 
 void Amedicament::on_pushButton_modifier_clicked()
@@ -182,3 +184,5 @@ void Amedicament::on_pushButton_tri_clicked()
         ui->tablemedicament->setModel(m);
         ui->tablemedicament->setSortingEnabled(true);
 }
+
+

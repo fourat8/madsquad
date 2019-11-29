@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_tri_clicked();
 
+
+
 private:
     Ui::Amedicament *ui;
     medicament tmpmedicament;

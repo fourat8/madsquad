@@ -18,8 +18,8 @@
     <rect>
      <x>90</x>
      <y>50</y>
-     <width>711</width>
-     <height>561</height>
+     <width>601</width>
+     <height>441</height>
     </rect>
    </property>
    <property name="whatsThis">
@@ -37,8 +37,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>711</width>
-       <height>521</height>
+       <width>611</width>
+       <height>411</height>
       </rect>
      </property>
      <property name="currentIndex">
@@ -46,7 +46,7 @@
      </property>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
-       <string>Ajouter médicament</string>
+       <string>Ajouter</string>
       </attribute>
       <widget class="QLabel" name="label">
        <property name="geometry">
@@ -120,8 +120,8 @@
       <widget class="QPushButton" name="pushButton_ok">
        <property name="geometry">
         <rect>
-         <x>530</x>
-         <y>310</y>
+         <x>440</x>
+         <y>300</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -133,7 +133,7 @@
      </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
-       <string>Modifier médicament</string>
+       <string>Modifier</string>
       </attribute>
       <widget class="QLabel" name="label_4">
        <property name="geometry">
@@ -207,7 +207,7 @@
       <widget class="QPushButton" name="pushButton_modifier">
        <property name="geometry">
         <rect>
-         <x>510</x>
+         <x>420</x>
          <y>290</y>
          <width>93</width>
          <height>28</height>
@@ -220,7 +220,7 @@
       <widget class="QPushButton" name="pushButton_chercherP">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>450</x>
          <y>120</y>
          <width>111</width>
          <height>28</height>
@@ -233,7 +233,7 @@
      </widget>
      <widget class="QWidget" name="tab_5">
       <attribute name="title">
-       <string>Supprimer médicaments</string>
+       <string>Supprimer </string>
       </attribute>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
@@ -287,7 +287,7 @@
      </widget>
      <widget class="QWidget" name="tab_7">
       <attribute name="title">
-       <string>Chercher médicaments</string>
+       <string>Chercher </string>
       </attribute>
       <widget class="QLabel" name="label_9">
        <property name="geometry">
@@ -305,8 +305,8 @@
       <widget class="QLineEdit" name="lineEdit_nomP_3">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>70</y>
+         <x>70</x>
+         <y>50</y>
          <width>331</width>
          <height>22</height>
         </rect>
@@ -315,8 +315,8 @@
       <widget class="QPushButton" name="pushButton_rechercher">
        <property name="geometry">
         <rect>
-         <x>560</x>
-         <y>70</y>
+         <x>450</x>
+         <y>50</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -328,8 +328,8 @@
       <widget class="QTableView" name="tablemedicament_2">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>130</y>
+         <x>70</x>
+         <y>90</y>
          <width>421</width>
          <height>281</height>
         </rect>
@@ -338,13 +338,13 @@
      </widget>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
-       <string>Afficher la liste des médicaments</string>
+       <string>Afficher la liste </string>
       </attribute>
       <widget class="QTableView" name="tablemedicament">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>40</y>
+         <x>100</x>
+         <y>30</y>
          <width>421</width>
          <height>281</height>
         </rect>
@@ -353,8 +353,8 @@
       <widget class="QPushButton" name="pushButton_tri">
        <property name="geometry">
         <rect>
-         <x>270</x>
-         <y>350</y>
+         <x>260</x>
+         <y>330</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -364,140 +364,24 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_8">
-      <attribute name="title">
-       <string>Envoyer Mail</string>
-      </attribute>
-      <widget class="QPushButton" name="pushButton_envoyer">
-       <property name="geometry">
-        <rect>
-         <x>230</x>
-         <y>440</y>
-         <width>281</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Envoyer</string>
-       </property>
-      </widget>
-      <widget class="QFrame" name="frame">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>10</y>
-         <width>641</width>
-         <height>421</height>
-        </rect>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_10">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>30</y>
-          <width>55</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>De:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_11">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>80</y>
-          <width>55</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>A:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_12">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>130</y>
-          <width>55</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Objet:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_13">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>290</y>
-          <width>55</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Message:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>30</y>
-          <width>551</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>80</y>
-          <width>551</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_3">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>130</y>
-          <width>551</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>200</y>
-          <width>551</width>
-          <height>201</height>
-         </rect>
-        </property>
-       </widget>
-      </widget>
-     </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>Gestion des materiels</string>
-    </attribute>
-   </widget>
   </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>894</width>
+     <height>627</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_10</zorder>
+  <zorder>tabwidget</zorder>
  </widget>
  <resources/>
  <connections/>
