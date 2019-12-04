@@ -186,3 +186,5 @@ void Amedicament::on_pushButton_tri_clicked()
 }
 
 
+
+
