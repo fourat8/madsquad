@@ -38,7 +38,7 @@ bool ordo::ajouter()
 {
 QSqlQuery query;
 QString res= QString::number(numordonnance);
-query.prepare("INSERT INTO ordo (NOM , PRENOM , NOMDOCTEUR , MEDICAMENT1 , MEDICAMENT2 , MEDICAMENT3 , MEDICAMENT4 ,NUMORDONNANCE) "
+query.prepare("INSERT INTO ordonnance (NOM , PRENOM , NOMDOCTEUR , MEDICAMENT1 , MEDICAMENT2 , MEDICAMENT3 , MEDICAMENT4 ,NUMORDONNANCE) "
                     "VALUES (   :nom, :prenom, :nomdocteur, :medicament1,:medicament2 ,:medicament3,:medicament4, :numordonnance)");
 
 
@@ -59,7 +59,7 @@ return    query.exec();
     QSqlQueryModel * ordo::afficher()
     {QSqlQueryModel * model= new QSqlQueryModel();
 
-    model->setQuery("select * from ordo order by numordonnance asc ");
+    model->setQuery("select * from ordonnance order by numordonnance asc ");
      model->setHeaderData(0, Qt::Horizontal, QObject::tr("NOM"));
      model->setHeaderData(1, Qt::Horizontal, QObject::tr("PRENOM"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("NOMDOCTEUR"));
@@ -81,7 +81,7 @@ return    query.exec();
     bool ordo::supprimer(int numordoo)
     {
     QSqlQuery query;
-    query.prepare("Delete from ordo where NUMORDONNANCE =:numordonnance ");
+    query.prepare("Delete from ordonnance where NUMORDONNANCE =:numordonnance ");
     query.bindValue(":numordonnance",numordoo);
     return    query.exec();
     }
@@ -90,7 +90,7 @@ return    query.exec();
     {
         QSqlQuery query;
 
-        query.prepare("UPDATE ordo SET   nom= :m, prenom= :p, nomdocteur= :d , medicament1= :a, medicament2= :b ,medicament3= :c,medicament4= :i where numordonnance=:o" );
+        query.prepare("UPDATE ordonnance SET   nom= :m, prenom= :p, nomdocteur= :d , medicament1= :a, medicament2= :b ,medicament3= :c,medicament4= :i where numordonnance=:o" );
 
 
         query.bindValue(":m", nom);
@@ -108,7 +108,7 @@ return    query.exec();
     QSqlQueryModel * ordo::afficher2(QString numordonnance)
    { QSqlQueryModel * model= new QSqlQueryModel();
         //QString res= QString::number(numordonnance);
-        QString cherche="Select * from ordo where numordonnance like '"+numordonnance+"%'";
+        QString cherche="Select * from ordonnance where numordonnance like '"+numordonnance+"%'";
     if (numordonnance=="")
     {
         model->setQuery("select * from ordonnance ");

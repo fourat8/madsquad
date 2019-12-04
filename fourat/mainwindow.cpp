@@ -8,13 +8,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 ui->setupUi(this);
 ui->tabpatient->setModel(tmppatient.afficher());
-QPixmap pix("C:/Users/Admin/Desktop/ok/Atelier_Crud_Vf/img/pic.jpg");
+QPixmap pix("C:/Users/Admin/Desktop/fourat/img/pic.jpg");
         ui->p1->setPixmap(pix);
         ui->p2->setPixmap(pix);
         ui->p3->setPixmap(pix);
         ui->p4->setPixmap(pix);
         ui->p5->setPixmap(pix);
         ui->p6->setPixmap(pix);
+son=new QSound("C:/Users/Admin/Desktop/fourat/son/1100.wav");
 
 }
 
@@ -35,7 +36,8 @@ void MainWindow::on_pb_ajouter_clicked()
   patient e(id,nom,prenom,drdv,maladie,obs);
   bool test=e.ajouter();
   if(test)
-{ui->tabpatient->setModel(tmppatient.afficher());//refresh
+{son->play();
+      ui->tabpatient->setModel(tmppatient.afficher());//refresh
 QMessageBox::information(nullptr, QObject::tr("patient ajouté"),
                   QObject::tr("Dossier ajouté.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
@@ -54,7 +56,8 @@ void MainWindow::on_pb_supprimer_clicked()
 int id = ui->lineEdit_id_2->text().toInt();
 bool test=tmppatient.supprimer(id);
 if(test)
-{ui->tabpatient->setModel(tmppatient.afficher());//refresh
+{son->play();
+    ui->tabpatient->setModel(tmppatient.afficher());//refresh
     QMessageBox::information(nullptr, QObject::tr("Supprimer un étudiant"),
                 QObject::tr("Etudiant supprimé.\n"
                             "Click Cancel to exit."), QMessageBox::Cancel);
@@ -99,20 +102,18 @@ QMessageBox::information(nullptr, QObject::tr("Dossier modifié"),
 
 
 
-void MainWindow::on_rechercher_clicked()
+/*void MainWindow::on_rechercher_clicked()
 {
     QString rech;
     rech=ui->rech->text();
-
     QSqlQueryModel * model= new QSqlQueryModel();
     QSqlQuery* qry=new QSqlQuery();
-
      qry->prepare("SELECT * from patient where nump like '"+rech+"'");
      qry->bindValue("rech",rech);
      qry->exec();
      model->setQuery(*qry);
      ui->tabr->setModel(model);
-}
+}*/
 
 void MainWindow::on_rech_returnPressed()
 {
@@ -122,7 +123,7 @@ void MainWindow::on_rech_returnPressed()
     QSqlQueryModel * model= new QSqlQueryModel();
     QSqlQuery* qry=new QSqlQuery();
 
-     qry->prepare("SELECT * from patient where nump like '"+rech+"'");
+     qry->prepare("SELECT * from patient where nump like '"+rech+"%'");
      qry->bindValue("rech",rech);
      qry->exec();
      model->setQuery(*qry);
@@ -130,7 +131,7 @@ void MainWindow::on_rech_returnPressed()
 }
 
 
-void MainWindow::on_rechercher_2_clicked()
+/*void MainWindow::on_rechercher_2_clicked()
 {
     QString rech;
     rech=ui->rech2->text();
@@ -138,7 +139,38 @@ void MainWindow::on_rechercher_2_clicked()
     QSqlQueryModel * model= new QSqlQueryModel();
     QSqlQuery* qry=new QSqlQuery();
 
-     qry->prepare("SELECT * from medecin where cin like '"+rech+"'");
+     qry->prepare("SELECT * from ordonnance where numordonnance like '"+rech+"%'");
+     qry->bindValue("rech",rech);
+     qry->exec();
+     model->setQuery(*qry);
+     ui->tabr2->setModel(model);
+}*/
+
+void MainWindow::on_rech_textChanged(const QString &arg1)
+{ QString rech;
+    rech=ui->rech->text();
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery* qry=new QSqlQuery();
+
+     qry->prepare("SELECT * from patient where nump like '"+rech+"%'");
+     qry->bindValue("rech",rech);
+     qry->exec();
+     model->setQuery(*qry);
+     ui->tabr->setModel(model);
+
+}
+
+
+void MainWindow::on_rech2_textChanged(const QString &arg1)
+{
+    QString rech;
+    rech=ui->rech2->text();
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+    QSqlQuery* qry=new QSqlQuery();
+
+     qry->prepare("SELECT * from ordonnance where numordonnance like '"+rech+"%'");
      qry->bindValue("rech",rech);
      qry->exec();
      model->setQuery(*qry);

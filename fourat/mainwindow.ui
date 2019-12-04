@@ -52,7 +52,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>2</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -607,23 +607,6 @@ color: rgb(255, 255, 255);</string>
          </rect>
         </property>
        </widget>
-       <widget class="QPushButton" name="rechercher">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>140</y>
-          <width>93</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0.631, y1:0.420455, x2:1, y2:0, stop:1 rgba(0, 0, 127, 255));
-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string>Confirmer</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="p5">
         <property name="geometry">
          <rect>
@@ -641,7 +624,6 @@ color: rgb(255, 255, 255);</string>
        <zorder>tabr</zorder>
        <zorder>label_5</zorder>
        <zorder>rech</zorder>
-       <zorder>rechercher</zorder>
       </widget>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -655,23 +637,6 @@ color: rgb(255, 255, 255);</string>
           <width>113</width>
           <height>20</height>
          </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="rechercher_2">
-        <property name="geometry">
-         <rect>
-          <x>530</x>
-          <y>150</y>
-          <width>93</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: qlineargradient(spread:pad, x1:0.631, y1:0.420455, x2:1, y2:0, stop:1 rgba(0, 0, 127, 255));
-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string>Confirmer</string>
         </property>
        </widget>
        <widget class="QTableView" name="tabr2">
@@ -712,7 +677,6 @@ color: rgb(255, 255, 255);</string>
        </widget>
        <zorder>p6</zorder>
        <zorder>rech2</zorder>
-       <zorder>rechercher_2</zorder>
        <zorder>tabr2</zorder>
        <zorder>label_7</zorder>
       </widget>
