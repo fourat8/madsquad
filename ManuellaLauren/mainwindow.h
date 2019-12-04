@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include "rdv.h"
 #include <QMainWindow>
+#include <Qsound>
 
 namespace Ui {
 class MainWindow;
@@ -31,6 +32,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     rdv tmprdv;
+    QSound *son;
 };
 
 #endif // MAINWINDOW_H

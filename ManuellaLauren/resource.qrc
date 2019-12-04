@@ -5,5 +5,15 @@
         <file>img/secretariat1.jpg</file>
         <file>img/secretariat2.jpg</file>
         <file>img/s.jpg</file>
+        <file>son/0267.wav</file>
+        <file>son/1100.mp3</file>
+        <file>son/1100.wav</file>
+        <file>connexion.cpp</file>
+        <file>connexion.h</file>
+        <file>main.cpp</file>
+        <file>mainwindow.cpp</file>
+        <file>mainwindow.h</file>
+        <file>rdv.cpp</file>
+        <file>rdv.h</file>
     </qresource>
 </RCC>

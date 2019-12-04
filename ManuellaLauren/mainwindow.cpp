@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "rdv.h"
 #include <QMessageBox>
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -14,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->picture_affichrdv->setPixmap(pic);
     ui->picture_modifrdv->setPixmap(pic);
     ui->picture_supprdv->setPixmap(pic);
+    son=new QSound(":/son/1100.wav");
 }
 
 MainWindow::~MainWindow()
@@ -36,7 +36,7 @@ void MainWindow::on_pb_ajouter_clicked()
     bool test=r.ajouter();
 
     if(test)
-    {
+    {   son->play();
         ui->tabrdv->setModel(tmprdv.afficher());//refresh
             QMessageBox::information(nullptr, QObject::tr("Ajouter un rendez-vous"),
             QObject::tr("Rendez-vous ajouté.\n"
@@ -57,7 +57,7 @@ void MainWindow::on_pb_supprimer_clicked()
   bool test=tmprdv.supprimer(cin);
 
   if(test)
-  {
+  {  son->play();
       ui->tabrdv->setModel(tmprdv.afficher());//refresh
           QMessageBox::information(nullptr, QObject::tr("Supprimer un Rendez-vous"),
                 QObject::tr("Rendez-vous supprimé.\n"
@@ -96,7 +96,7 @@ void MainWindow::on_recherche_patient_clicked()
     bool test=tmprdv.recherche_patient(cin);
 
    if(test)
-    {
+    {    son->play();
         ui->tabrdv->setModel(tmprdv.afficher_patient(cin));//refresh
             QMessageBox::information(nullptr, QObject::tr("Recherche effectuée"),
             QObject::tr("Reussite.\n"
@@ -118,6 +118,7 @@ void MainWindow::on_rechercher_medecin_clicked()
 
    if(test)
     {
+       son->play();
         ui->tabrdv->setModel(tmprdv.afficher_medecin(cin));//refresh
             QMessageBox::information(nullptr, QObject::tr("Recherche effectuée"),
             QObject::tr("Reussite.\n"
