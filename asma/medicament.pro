@@ -2,6 +2,7 @@ QT       += core gui
 QT       +=sql
 QT       +=multimedia
 QT       += network
+QT += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -19,6 +20,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     amedicament.cpp \
+    commande.cpp \
+    commande1.cpp \
     connexion.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -26,12 +29,15 @@ SOURCES += \
 
 HEADERS += \
     amedicament.h \
+    commande.h \
+    commande1.h \
     connexion.h \
     mainwindow.h \
     medicament.h
 
 FORMS += \
     amedicament.ui \
+    commande.ui \
     connexion.ui \
     mainwindow.ui
 

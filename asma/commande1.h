@@ -1,5 +1,5 @@
-#ifndef MEDICAMENT_H
-#define MEDICAMENT_H
+#ifndef COMMANDE1_H
+#define COMMANDE1_H
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -13,30 +13,27 @@
 #include <QFileInfo>
 #include <QObject>
 
-
-
-class medicament
+class Commande
 {
-
 private:
-    int ref;
+    int numC;
     QString nomProduit;
-    int nbrMed;
+    QString date;
+    QString date_d;
+    int nbrMed_C;
 
 public:
-    medicament();
-    medicament(int,QString,int);
+    Commande();
+    Commande(int,QString,QString,int,QString);
     bool ajouter();
-    int getRef() {return ref;}
+    int getnumC() {return numC;}
     QString getNomProduit() {return nomProduit;}
-    void setNomProduit(QString P) {nomProduit=P;}
-    int getNbrMed() {return nbrMed;}
+    void setNomProduit(QString P1) {nomProduit=P1;}
+    QString getdate() {return date;}
+    int getNbrComm() {return nbrMed_C;}
     QSqlQueryModel * afficher();
     bool supprimer(int);
-    bool modifier(int,QString,int);
+    bool modifier(int,QString,QString,int,QString);
 
 };
-
-
-
-#endif // MEDICAMENT_H
+#endif // COMMANDE1_H

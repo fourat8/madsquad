@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "amedicament.h"
+#include "commande.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -21,3 +22,4 @@ void MainWindow::on_pushButton_clicked()
     A.setModal(true);
     A.exec();
 }
+

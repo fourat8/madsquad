@@ -19,18 +19,21 @@ public:
     ~Amedicament();
      QMediaPlayer* player= new QMediaPlayer;
 private slots:
+    void comboBox_nomP();
     void on_pushButton_ok_clicked();
     void on_pushButton_supp_clicked();
     void on_pushButton_modifier_clicked();
     void on_pushButton_rechercher_clicked();
     void on_pushButton_chercherP_clicked();
-
     void on_pushButton_tri_clicked();
+    void on_pushButton_imprimer_clicked();
 
+    void on_pushButton_commander_clicked();
 
 private:
     Ui::Amedicament *ui;
     medicament tmpmedicament;
+
 
 };
 

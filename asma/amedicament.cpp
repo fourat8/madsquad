@@ -4,6 +4,11 @@
 #include "QMessageBox"
 #include "QDebug"
 #include "QSqlError"
+#include <QDate>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QTextDocument>
+#include "commande.h"
 Amedicament::Amedicament(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Amedicament)
@@ -11,11 +16,26 @@ Amedicament::Amedicament(QWidget *parent) :
     ui->setupUi(this);
      ui->tablemedicament->setModel(tmpmedicament.afficher());
      QPixmap pix(":/img/img/doctor-gp-netherlands.jpg");
-     ui->label_10->setPixmap(pix);}
+     ui->label_10->setPixmap(pix);
+     comboBox_nomP();
+}
 
 Amedicament::~Amedicament()
 {
     delete ui;
+}
+void Amedicament::comboBox_nomP()
+{   QString nomProduit= ui->comboBox->currentText();
+    qDebug()<< nomProduit << endl;
+    QSqlQuery query;
+    query.prepare("select NOMPRODUIT from TABCOMM");
+    query.exec();
+    QSqlQueryModel *modal =new QSqlQueryModel();
+    modal->setQuery(query);
+    qDebug()<<modal->rowCount();
+    ui->comboBox->setModel(modal);
+    ui->lineEdit_nomP->setText(nomProduit);
+
 }
 
 void Amedicament::on_pushButton_ok_clicked()
@@ -41,7 +61,7 @@ void Amedicament::on_pushButton_ok_clicked()
                   QObject::tr("médicament ajouté.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
             ui->lineEdit_ref->clear();
-            ui->lineEdit_nomP->clear();
+            ui->comboBox->clear();
             ui->lineEdit_nb->clear();
 
     }
@@ -59,9 +79,9 @@ void Amedicament::on_pushButton_modifier_clicked()
     qDebug()<<player->errorString();
     QThread::sleep(1);
 
-    int ref = ui->lineEdit_ref_2->text().toInt();
-    QString nomProduit= ui->lineEdit_nomP_2->text();
-    int nbrMed= ui->lineEdit_nb_2->text().toInt();
+    int ref = ui->lineEdit_ref->text().toInt();
+    QString nomProduit= ui->lineEdit_nomP->text();
+    int nbrMed= ui->lineEdit_nb->text().toInt();
     if(nbrMed<=20){
         QMessageBox::critical(nullptr, QObject::tr("ALERT!!"),
                                          QObject::tr("veuillez recharger le stocke de ce médicament à nouveau!.\n"
@@ -75,12 +95,12 @@ void Amedicament::on_pushButton_modifier_clicked()
             QMessageBox::information(nullptr, QObject::tr("Modifier un médicament"),
                   QObject::tr("médicament modifié.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
-            ui->lineEdit_ref_2->clear();
-            ui->lineEdit_nomP_2->clear();
-            ui->lineEdit_nb_2->clear();
+            ui->lineEdit_ref->clear();
+            ui->lineEdit_nomP->clear();
+            ui->lineEdit_nb->clear();
     }
     else
-      QMessageBox::critical(nullptr, QObject::tr("Modifier un étudiant"),
+      QMessageBox::critical(nullptr, QObject::tr("Modifier un médicament"),
                   QObject::tr("Erreur !.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
 
@@ -96,14 +116,14 @@ void Amedicament::on_pushButton_supp_clicked()
     QThread::sleep(1);
 
     medicament m;
-        int ref = ui->lineEdit_ref_3->text().toInt();
+        int ref = ui->lineEdit_ref->text().toInt();
         bool test=m.supprimer(ref);
         if(test)
         { ui->tablemedicament->setModel(tmpmedicament.afficher());
             QMessageBox::information(nullptr, QObject::tr("Supprimer un médicament"),
                         QObject::tr("Médicament supprimé.\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
-               ui->lineEdit_ref_3->clear();
+               ui->lineEdit_ref->clear();
         }
         else
             QMessageBox::critical(nullptr, QObject::tr("Supprimer un médicament"),
@@ -118,8 +138,9 @@ void Amedicament::on_pushButton_chercherP_clicked()
     player->play();
     qDebug()<<player->errorString();
     QThread::sleep(1);
-
-    QString nomProduit= ui->lineEdit_nomP_2->text();
+    QString nomProduit1= ui->comboBox->currentText();
+    ui->lineEdit_nomP->setText(nomProduit1);
+    QString nomProduit= ui->lineEdit_nomP->text();
      qDebug()<< nomProduit << endl;
             QSqlQuery query;
             query.first();
@@ -130,9 +151,9 @@ void Amedicament::on_pushButton_chercherP_clicked()
                 while(query.next())
                 {
 
-                    ui->lineEdit_ref_2->setText(query.value(0).toString());//Ref
-                    ui->lineEdit_nomP_2->setText(query.value(1).toString());//nomProduit
-                    ui->lineEdit_nb_2->setText(query.value(2).toString());//nbrmed
+                    ui->lineEdit_ref->setText(query.value(0).toString());//Ref
+                    ui->lineEdit_nomP->setText(query.value(1).toString());//nomProduit
+                    ui->lineEdit_nb->setText(query.value(2).toString());//nbrmed
 
 
                 }
@@ -186,5 +207,65 @@ void Amedicament::on_pushButton_tri_clicked()
 }
 
 
+void Amedicament::on_pushButton_imprimer_clicked()
+{
+    QString strStream;
+              QTextStream out(&strStream);
+
+              const int rowCount = ui->tablemedicament->model()->rowCount();
+              const int columnCount = ui->tablemedicament->model()->columnCount();
+              QString TT = QDate::currentDate().toString("yyyy/MM/dd");
+              out <<"<html>\n"
+                    "<head>\n"
+                     "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                  << "<title>ERP - COMmANDE LIST<title>\n "
+                  << "</head>\n"
+                  "<body bgcolor=#ffffff link=#5000A0>\n"
+                  "<h1 style=\"text-align: center;\"><strong> ******LISTE DES Réservations ****** "+TT+"</strong></h1>"
+                  "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
+                    "</br> </br>";
+              // headers
+              out << "<thead><tr bgcolor=#d6e5ff>";
+              for (int column = 0; column < columnCount; column++)
+                  if (!ui->tablemedicament->isColumnHidden(column))
+                      out << QString("<th>%1</th>").arg(ui->tablemedicament->model()->headerData(column, Qt::Horizontal).toString());
+              out << "</tr></thead>\n";
+
+              // data table
+              for (int row = 0; row < rowCount; row++) {
+                  out << "<tr>";
+                  for (int column = 0; column < columnCount; column++) {
+                      if (!ui->tablemedicament->isColumnHidden(column)) {
+                          QString data =ui->tablemedicament->model()->data(ui->tablemedicament->model()->index(row, column)).toString().simplified();
+                          out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                      }
+                  }
+                  out << "</tr>\n";
+              }
+              out <<  "</table>\n"
+                  "</body>\n"
+                  "</html>\n";
+
+              QTextDocument *document = new QTextDocument();
+              document->setHtml(strStream);
+
+              QPrinter printer;
+
+              QPrintDialog *dialog = new QPrintDialog(&printer, nullptr);
+              if (dialog->exec() == QDialog::Accepted) {
+                  document->print(&printer);
+              }
+
+              delete document;
+}
 
 
+
+
+
+void Amedicament::on_pushButton_commander_clicked()
+{
+    commande C;
+    C.setModal(true);
+    C.exec();
+}
