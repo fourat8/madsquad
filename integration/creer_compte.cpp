@@ -33,7 +33,7 @@ void creer_compte::on_pushButton_clicked()
     {
         QMessageBox::information(this,"Login","Touts les champs sont obligatoires");
     }
-    else if (!(ui->radioButton->isChecked() || ui->radioButton_2->isChecked() || ui->radioButton_3->isChecked()))
+    else if (!(ui->radioButton->isChecked() || ui->radioButton_2->isChecked() || ui->radioButton_3->isChecked()|| ui->radioButton_4->isChecked()))
     {
         QMessageBox::information(this,"Information","Selectionnez au moins un titre");
     }
@@ -51,6 +51,10 @@ void creer_compte::on_pushButton_clicked()
         else if (ui->radioButton_3->isChecked())
         {
             statut="chef de depot";
+        }
+        else if (ui->radioButton_4->isChecked())
+        {
+            statut="pharmacien";
         }
         compte e(nom,prenom,id,mdp,date,statut);
         bool test=e.ajouter_compte();
@@ -79,3 +83,4 @@ QString creer_compte::on_radioButton_clicked()
     a="medecin";
     return a;
 }
+

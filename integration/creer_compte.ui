@@ -238,7 +238,7 @@
   <widget class="QRadioButton" name="radioButton">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>400</x>
      <y>390</y>
      <width>91</width>
      <height>21</height>
@@ -256,7 +256,7 @@
   <widget class="QRadioButton" name="radioButton_2">
    <property name="geometry">
     <rect>
-     <x>630</x>
+     <x>510</x>
      <y>390</y>
      <width>111</width>
      <height>21</height>
@@ -274,7 +274,7 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>110</x>
      <y>390</y>
      <width>131</width>
      <height>20</height>
@@ -328,7 +328,7 @@
   <widget class="QRadioButton" name="radioButton_3">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>240</x>
      <y>390</y>
      <width>151</width>
      <height>21</height>
@@ -341,6 +341,22 @@
    </property>
    <property name="text">
     <string>Chef de depot</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_4">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>390</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string>pharmacien</string>
    </property>
   </widget>
  </widget>

@@ -1,5 +1,6 @@
 QT       += core gui sql
-
+QT       += network
+QT      += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
 CONFIG += c++11
@@ -17,6 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     admin.cpp \
+    amedicament.cpp \
+    commande.cpp \
+    commande1.cpp \
     compte.cpp \
     connexion.cpp \
     creer_compte.cpp \
@@ -24,6 +28,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     materiel.cpp \
+    medicament.cpp \
     modification.cpp \
     patient.cpp \
     rdv.cpp \
@@ -31,12 +36,16 @@ SOURCES += \
 
 HEADERS += \
     admin.h \
+    amedicament.h \
+    commande.h \
+    commande1.h \
     compte.h \
     connexion.h \
     creer_compte.h \
     crud_materiel.h \
     login.h \
     materiel.h \
+    medicament.h \
     modification.h \
     patient.h \
     rdv.h \
@@ -44,6 +53,8 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    amedicament.ui \
+    commande.ui \
     creer_compte.ui \
     crud_materiel.ui \
     login.ui \

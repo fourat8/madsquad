@@ -7,6 +7,7 @@
 #include "connexion.h"
 #include "admin.h"
 #include "secretaire.h"
+#include "amedicament.h"
 #include <QSound>
 
 namespace Ui {
@@ -39,6 +40,7 @@ private:
     admin *Admin;
     secretaire *Secretaire;
     QSound *son;
+    Amedicament *amedicament;
 
 
 };

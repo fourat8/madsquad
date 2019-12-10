@@ -78,6 +78,8 @@ int compte::verifier_statut(QString nomcom, QString mdp)
         return 2;
     else if (statut=="chef de depot")
         return 3;
+    else if (statut=="pharmacien")
+        return 4;
     else return 0;
 }
 

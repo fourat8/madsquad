@@ -16,7 +16,8 @@
         <file>img/patient1.png</file>
         <file>img/pic.jpg</file>
         <file>son/button20.wav</file>
+        <file>son/click.mp3</file>
     </qresource>
     <qresource prefix="/son"/>
-    <qresource lang="son" prefix="/son"/>
+    <qresource prefix="/son" lang="son"/>
 </RCC>

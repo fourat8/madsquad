@@ -4,7 +4,6 @@
 #include "connexion.h"
 #include "compte.h"
 
-
 login::login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::login)
@@ -56,6 +55,11 @@ void login::on_pushButton_2_clicked()
         {
             Crud_Materiel=new crud_materiel();
             Crud_Materiel->show();
+        }
+        else if (tmpcompte.verifier_statut(nomcom,mdp)==4)
+        {
+            amedicament=new Amedicament;
+            amedicament->show();
         }
     }
     else

@@ -23,6 +23,8 @@ private slots:
 
     QString on_radioButton_clicked();
 
+
+
 private:
     Ui::creer_compte *ui;
 };
