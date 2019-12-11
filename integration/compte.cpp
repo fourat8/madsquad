@@ -7,11 +7,11 @@ compte::compte()
 
 }
 
-compte::compte(QString nom,QString prenom,QString nomcom,QString mdp, QString daate, QString statut)
+compte::compte(QString nom,QString prenom,QString id,QString mdp, QString daate, QString statut)
 {
     this->nom=nom;
     this->prenom=prenom;
-    this->nomcom=nomcom;
+    this->id=id;
     this->mdp=mdp;
     this->daate=daate;
     this->statut=statut;
@@ -20,10 +20,10 @@ compte::compte(QString nom,QString prenom,QString nomcom,QString mdp, QString da
 bool compte::ajouter_compte()
 {
 QSqlQuery query;
-query.prepare("INSERT INTO compte (nom, prenom, nomcom, mdp, daate,statut) VALUES (:nom, :prenom, :nomcom, :mdp, :daate, :statut)");
+query.prepare("INSERT INTO compte (nom, prenom, id, mdp, daate,statut) VALUES (:nom, :prenom, :id, :mdp, :daate, :statut)");
 query.bindValue(":nom", nom);
 query.bindValue(":prenom", prenom);
-query.bindValue(":nomcom", nomcom);
+query.bindValue(":id", id);
 query.bindValue(":mdp", mdp);
 query.bindValue(":daate", daate);
 query.bindValue(":statut", statut);
@@ -31,25 +31,24 @@ query.bindValue(":statut", statut);
 return    query.exec();
 }
 
-bool compte::verifier_compte(QString nomcom, QString mdp)
+bool compte::verifier_compte(QString id, QString mdp)
 {
     QSqlQuery query;
-    QString mdpbd,nomcombd;
+    QString mdpbd,idbd;
 
-    if (mdp=="" || nomcom=="")
+    if (mdp=="" || id=="")
     {
         return  false;
     }
 
-    qDebug()<<query.exec("SELECT mdp,nomcom FROM compte WHERE"
-                  " nomcom= '"+nomcom+"' AND"
+    query.exec("SELECT mdp,id FROM compte WHERE"
+                  " id= '"+id+"' AND"
                   " mdp= '"+mdp+"'");
     while (query.next()) {
-        qDebug()<<"salut";
        mdpbd = query.value("mdp").toString();
-       nomcombd= query.value("nomcom").toString();
+       idbd= query.value("id").toString();
         }
-    if (mdpbd==mdp && nomcom==nomcombd)
+    if (mdpbd==mdp && id==idbd)
     {
 
         return true;
@@ -61,12 +60,12 @@ bool compte::verifier_compte(QString nomcom, QString mdp)
     }
 
 }
-int compte::verifier_statut(QString nomcom, QString mdp)
+int compte::verifier_statut(QString id, QString mdp)
 {
     QSqlQuery query;
     QString statut;
     query.exec("SELECT statut FROM compte WHERE"
-               " nomcom= '"+nomcom+"' AND"
+               " id= '"+id+"' AND"
                " mdp= '"+mdp+"'");
     while (query.next())
     {
@@ -106,7 +105,7 @@ if (ref=="")
 }
 else
 {
-    QString cherche="Select * from compte where nomcom = '"+ref+"' or mdp = '"+ref+"' or nom = '"+ref+"' or statut = '"+ref+"' or daate = '"+ref+"'";
+    QString cherche="Select * from compte where id = '"+ref+"' or mdp = '"+ref+"' or nom = '"+ref+"' or statut = '"+ref+"' or daate = '"+ref+"'";
 
 }
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("Nom"));
@@ -122,7 +121,7 @@ bool compte::supprimer(QString nom)
 {
 QSqlQuery query;
 //QString res= QString::number(idd);
-query.prepare("Delete from compte where nom = '"+nom+"' or prenom ='"+nom+"' or nomcom='"+nom+"' or mdp ='"+nom+"' or statut ='"+nom+"'" );
+query.prepare("Delete from compte where nom = '"+nom+"' or prenom ='"+nom+"' or id='"+nom+"' or mdp ='"+nom+"' or statut ='"+nom+"'" );
 query.bindValue(":nom", nom);
 return    query.exec();
 }

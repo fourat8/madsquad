@@ -7,11 +7,11 @@ class patient
 {
 public:
     patient();
-    patient(int,QString,QString,QString,QString,QString);
+    patient(int,QString,QString,int,QString,QString);
     QString get_nom();
     QString get_prenom();
     int get_nump();
-    QString getdrdv();
+    int getnumtraitement();
     QString getmaladie();
     QString getobservation();
     void set_nump(int id);
@@ -24,8 +24,8 @@ public:
     bool modifier();
 
 private:
-    QString nom,prenom,drdv,maladie,observation;
-    int nump;
+    QString nom,prenom,maladie,observation;
+    int nump,numtraitement;
 };
 
 #endif // PATIENT_H

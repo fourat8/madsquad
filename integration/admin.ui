@@ -123,11 +123,27 @@
          <string/>
         </property>
        </widget>
+       <widget class="QComboBox" name="comboBox">
+        <property name="geometry">
+         <rect>
+          <x>602</x>
+          <y>40</y>
+          <width>121</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Trier par Statut</string>
+         </property>
+        </item>
+       </widget>
        <zorder>label</zorder>
        <zorder>label_6</zorder>
        <zorder>tabetudiant</zorder>
        <zorder>lineEdit_id_6</zorder>
        <zorder>pb_supprimer_5</zorder>
+       <zorder>comboBox</zorder>
       </widget>
      </widget>
      <widget class="QPushButton" name="pushButton">
@@ -152,7 +168,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

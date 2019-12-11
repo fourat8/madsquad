@@ -3,13 +3,15 @@
 #include "creer_compte.h"
 #include "connexion.h"
 #include "compte.h"
+#include "crud_materiel.h"
+#include "compte_medecin.h"
 
 login::login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::login)
 {
     ui->setupUi(this);
-    son=new QSound(":/img/son/1100.wav");
+    son=new QSound(":/son/son/1100.wav");
     QPixmap pix(":/img/img/doctor-gp-netherlands.jpg");
     ui->picture->setPixmap(pix);
     QPixmap logo(":/img/img/logooo.png");
@@ -44,7 +46,8 @@ void login::on_pushButton_2_clicked()
         close();
         if (tmpcompte.verifier_statut(nomcom,mdp)==1)
         {
-            qDebug()<<"Medecin";
+            Compte_Medecin = new compte_medecin();
+            Compte_Medecin->show();
         }
         else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
         {
@@ -95,7 +98,8 @@ void login::on_lineEdit_id_returnPressed()
         close();
         if (tmpcompte.verifier_statut(nomcom,mdp)==1)
         {
-            qDebug()<<"Medecin";
+            Compte_Medecin = new compte_medecin();
+            Compte_Medecin->show();
         }
         else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
         {
@@ -106,6 +110,11 @@ void login::on_lineEdit_id_returnPressed()
         {
             Crud_Materiel=new crud_materiel();
             Crud_Materiel->show();
+        }
+        else if (tmpcompte.verifier_statut(nomcom,mdp)==4)
+        {
+            amedicament=new Amedicament;
+            amedicament->show();
         }
     }
     else
@@ -135,7 +144,8 @@ void login::on_lineEdit_mdp_returnPressed()
             close();
             if (tmpcompte.verifier_statut(nomcom,mdp)==1)
             {
-                qDebug()<<"Medecin";
+                Compte_Medecin = new compte_medecin();
+                Compte_Medecin->show();
             }
             else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
             {
@@ -146,6 +156,11 @@ void login::on_lineEdit_mdp_returnPressed()
             {
                 Crud_Materiel=new crud_materiel();
                 Crud_Materiel->show();
+            }
+            else if (tmpcompte.verifier_statut(nomcom,mdp)==4)
+            {
+                amedicament=new Amedicament;
+                amedicament->show();
             }
 
     }

@@ -349,14 +349,16 @@
      <x>650</x>
      <y>390</y>
      <width>121</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
    </property>
    <property name="text">
-    <string>pharmacien</string>
+    <string>Pharmacien</string>
    </property>
   </widget>
  </widget>

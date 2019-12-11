@@ -316,6 +316,19 @@
      <number>0</number>
     </property>
    </widget>
+   <widget class="QPushButton" name="pb_ajouter_2">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>460</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Imprimer</string>
+    </property>
+   </widget>
    <zorder>label_6</zorder>
    <zorder>frame</zorder>
    <zorder>ref</zorder>
@@ -333,6 +346,7 @@
    <zorder>pb_ajouter</zorder>
    <zorder>label_3</zorder>
    <zorder>lineEdit_id_6</zorder>
+   <zorder>pb_ajouter_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

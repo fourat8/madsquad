@@ -40,6 +40,8 @@ private slots:
     void on_comboBox_2_activated(const QString &arg1);
 
 
+    void on_pb_ajouter_2_clicked();
+
 private:
     Ui::crud_materiel *ui;
     Materiel tmpmateriel;

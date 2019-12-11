@@ -8,7 +8,9 @@
 #include "admin.h"
 #include "secretaire.h"
 #include "amedicament.h"
+#include "compte_medecin.h"
 #include <QSound>
+//#include "crud_docteur.h"
 
 namespace Ui {
 class login;
@@ -39,6 +41,7 @@ private:
     Connexion connexion;
     admin *Admin;
     secretaire *Secretaire;
+    compte_medecin *Compte_Medecin;
     QSound *son;
     Amedicament *amedicament;
 

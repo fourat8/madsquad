@@ -1,4 +1,4 @@
- #include "amedicament.h"
+#include "amedicament.h"
 #include "ui_amedicament.h"
 #include "medicament.h"
 #include "QMessageBox"
@@ -9,11 +9,12 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QTextDocument>
 #include "commande.h"
+#include "login.h"
 Amedicament::Amedicament(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Amedicament)
 {
-    ui->setupUi(this);
+     ui->setupUi(this);
      ui->tablemedicament->setModel(tmpmedicament.afficher());
      QPixmap pix(":/img/img/doctor-gp-netherlands.jpg");
      ui->label_10->setPixmap(pix);
@@ -272,4 +273,25 @@ void Amedicament::on_pushButton_commander_clicked()
     commande C;
     C.setModal(true);
     C.exec();
+}
+
+void Amedicament::on_pushButton_clicked()
+{
+    QMessageBox msgBox;
+    QPushButton *connectButton = msgBox.addButton(tr("Confirmer"), QMessageBox::ActionRole);
+     QPushButton *abortButton = msgBox.addButton(QMessageBox::Cancel);
+     msgBox.setText("Voulez-vous vraiment vous déconnecter ?");
+     msgBox.exec();
+
+     if (msgBox.clickedButton() == connectButton)
+     {
+         msgBox.close();
+         close();
+         login c;
+         c.exec();
+
+     }
+     else if (msgBox.clickedButton() == abortButton) {
+         msgBox.close();
+     }
 }

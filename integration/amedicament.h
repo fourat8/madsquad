@@ -30,6 +30,8 @@ private slots:
 
     void on_pushButton_commander_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Amedicament *ui;
     medicament tmpmedicament;

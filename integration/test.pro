@@ -22,17 +22,21 @@ SOURCES += \
     commande.cpp \
     commande1.cpp \
     compte.cpp \
+    compte_medecin.cpp \
     connexion.cpp \
     creer_compte.cpp \
     crud_materiel.cpp \
+    docteur2.cpp \
     login.cpp \
     main.cpp \
     materiel.cpp \
     medicament.cpp \
     modification.cpp \
+    ordo.cpp \
     patient.cpp \
     rdv.cpp \
-    secretaire.cpp
+    secretaire.cpp \
+    traitement.cpp
 
 HEADERS += \
     admin.h \
@@ -40,21 +44,26 @@ HEADERS += \
     commande.h \
     commande1.h \
     compte.h \
+    compte_medecin.h \
     connexion.h \
     creer_compte.h \
     crud_materiel.h \
+    docteur2.h \
     login.h \
     materiel.h \
     medicament.h \
     modification.h \
+    ordo.h \
     patient.h \
     rdv.h \
-    secretaire.h
+    secretaire.h \
+    traitement.h
 
 FORMS += \
     admin.ui \
     amedicament.ui \
     commande.ui \
+    compte_medecin.ui \
     creer_compte.ui \
     crud_materiel.ui \
     login.ui \
@@ -70,6 +79,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RC_ICONS = logo.ico
 
 RESOURCES += \
+    ressource.qrc \
     ressource.qrc
 
 DISTFILES +=

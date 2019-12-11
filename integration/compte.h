@@ -20,7 +20,7 @@ public:
     bool supprimer(QString);
 
 private:
-    QString nom,prenom,nomcom,mdp,daate,statut;
+    QString nom,prenom,id,mdp,daate,statut;
 
 };
 

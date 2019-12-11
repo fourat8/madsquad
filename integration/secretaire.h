@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include "patient.h"
 #include <QSound>
+#include "traitement.h"
+#include "ordo.h"
+#include "docteur2.h"
 
 namespace Ui {
 class secretaire;
@@ -42,13 +45,37 @@ private slots:
 
     void on_rech2_2_textChanged(const QString &arg1);
 
+    void on_pb_ajouter_4_clicked();
+
+    void on_pb_supprimer_4_clicked();
+
+    void on_modif_clicked();
+
+    void on_rech_textChanged(const QString &arg1);
+
+    void on_rech2_textChanged(const QString &arg1);
+
+    void on_modif_3_clicked();
+
+    void on_pb_supprimer_2_clicked();
+
+    void on_pb_ajouter_2_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_supprimer_clicked();
+
+    void on_lineEdit_3_textChanged(const QString &arg1);
+
+    void on_pb_supprimer_5_clicked();
+
 private:
     Ui::secretaire *ui;
     rdv tmprdv;
     patient tmppatient;
     QSound *son;
-
-
+    traitement tmptraitement;
+    docteur tmpdocteur;
 };
 
 #endif // MAINWINDOW_H

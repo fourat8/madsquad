@@ -5,7 +5,13 @@
 #include "login.h"
 #include "QStringListModel"
 #include "modification.h"
-
+#include <QFile>
+#include <QTimer>
+#include <QPrintDialog>
+#include <QPrinter>
+#include <QDate>
+#include <QTextDocument>
+#include <QTextStream>
 
 crud_materiel::crud_materiel(QWidget *parent) :
     QMainWindow(parent),
@@ -210,4 +216,56 @@ void crud_materiel::on_comboBox_2_activated(const QString &arg1)
 {
     ui->tabmateriel->setModel( tmpmateriel.affichernomtrie(arg1));
 
+}
+
+void crud_materiel::on_pb_ajouter_2_clicked()
+{
+    QString strStream;
+                    QTextStream out(&strStream);
+
+                    const int rowCount = ui->tabmateriel->model()->rowCount();
+                    const int columnCount = ui->tabmateriel->model()->columnCount();
+                    QString TT = QDate::currentDate().toString("yyyy/MM/dd");
+                    out <<"<html>\n"
+                          "<head>\n"
+                           "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                        << "<title>ERP - COMmANDE LIST<title>\n "
+                        << "</head>\n"
+                        "<body bgcolor=#ffffff link=#5000A0>\n"
+                        "<h1 style=\"text-align: center;\"><strong> ***** Materiel Medical ***** "+TT+"</strong></h1>"
+                        "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
+                          "</br> </br>";
+                    // headers
+                    out << "<thead><tr bgcolor=#d6e5ff>";
+                    for (int column = 0; column < columnCount; column++)
+                        if (!ui->tabmateriel->isColumnHidden(column))
+                            out << QString("<th>%1</th>").arg(ui->tabmateriel->model()->headerData(column, Qt::Horizontal).toString());
+                    out << "</tr></thead>\n";
+
+                    // data table
+                    for (int row = 0; row < rowCount; row++) {
+                        out << "<tr>";
+                        for (int column = 0; column < columnCount; column++) {
+                            if (!ui->tabmateriel->isColumnHidden(column)) {
+                                QString data =ui->tabmateriel->model()->data(ui->tabmateriel->model()->index(row, column)).toString().simplified();
+                                out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                            }
+                        }
+                        out << "</tr>\n";
+                    }
+                    out <<  "</table>\n"
+                        "</body>\n"
+                        "</html>\n";
+
+                    QTextDocument *document = new QTextDocument();
+                    document->setHtml(strStream);
+
+                    QPrinter printer;
+
+                    QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                    if (dialog->exec() == QDialog::Accepted) {
+                        document->print(&printer);
+                    }
+
+                    delete document;
 }

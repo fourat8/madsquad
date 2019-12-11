@@ -375,6 +375,19 @@ color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0.512712 rgb
     <string>Commander </string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>10</y>
+     <width>101</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Déconnexion</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

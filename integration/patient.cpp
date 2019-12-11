@@ -6,24 +6,24 @@ patient::patient()
     nump=0;
     nom="";
     prenom="";
-    drdv="";
+    numtraitement=0;
     maladie="";
     observation="";
 
     }
-patient::patient(int nump,QString nom,QString prenom,QString drdv,QString maladie,QString observation)
+patient::patient(int nump,QString nom,QString prenom,int numtraitement,QString maladie,QString observation)
     {
       this->nump=nump;
       this->nom=nom;
       this->prenom=prenom;
-    this->drdv=drdv;
+    this->numtraitement=numtraitement;
     this->maladie=maladie;
     this->observation=observation;
     }
     QString patient::get_nom(){return  nom;}
     QString patient::get_prenom(){return prenom;}
     int patient::get_nump(){return  nump;}
-    QString patient::getdrdv(){return  drdv;}
+    int patient::getnumtraitement(){return  numtraitement;}
     QString patient::getmaladie(){return  maladie;}
     QString patient::getobservation(){return  observation;}
     void patient::set_nump(int id) {nump=id;}
@@ -33,12 +33,12 @@ patient::patient(int nump,QString nom,QString prenom,QString drdv,QString maladi
     {
     QSqlQuery query;
     QString res= QString::number(nump);
-    query.prepare("INSERT INTO patient (nump, nom, prenom, drdv, maladie, observation)"
-                        "VALUES (:nump, :nom, :prenom, :drdv, :maladie, :observation)");
+    query.prepare("INSERT INTO patient (nump, nom, prenom, numtraitement, maladie, observation)"
+                        "VALUES (:nump, :nom, :prenom, :numtraitement, :maladie, :observation)");
     query.bindValue(":nump", res);
     query.bindValue(":nom", nom);
     query.bindValue(":prenom", prenom);
-    query.bindValue(":drdv", drdv);
+    query.bindValue(":numtraitement", numtraitement);
     query.bindValue(":maladie", maladie);
     query.bindValue(":observation", observation);
 
@@ -49,11 +49,11 @@ patient::patient(int nump,QString nom,QString prenom,QString drdv,QString maladi
     QSqlQueryModel * patient::afficher()
     {QSqlQueryModel * model= new QSqlQueryModel();
 
-    model->setQuery("select * from PATIENT order by nump ASC");
+    model->setQuery("select p.NUMP, p.nom, p.prenom, p.numtraitement,p.maladie,p.observation , t.nomt,t.datet from patient p,traitement t where t.numt=p.numtraitement order by p.nump ASC");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUMP"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM "));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("DRDV"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("numtraitement"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("MALADIE"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("OBSERVATION"));
 
@@ -95,11 +95,11 @@ patient::patient(int nump,QString nom,QString prenom,QString drdv,QString maladi
     {
         QSqlQuery query;
         QString res= QString::number(nump);
-        query.prepare("update patient set nom=:nom,prenom=:prenom,drdv=:drdv,maladie=:maladie,observation=:observation where nump= :nump");
+        query.prepare("update patient set nom=:nom,prenom=:prenom,numtraitement=:numtraitement,maladie=:maladie,observation=:observation where nump= :nump");
         query.bindValue(":nump", res);
         query.bindValue(":nom", this->nom);
         query.bindValue(":prenom", this->prenom);
-        query.bindValue(":drdv", this->drdv);
+        query.bindValue(":numtraitement", this->numtraitement);
         query.bindValue(":maladie", this->maladie);
         query.bindValue(":observation", this->observation);
 
