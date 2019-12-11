@@ -34,16 +34,16 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>20</y>
+        <y>30</y>
         <width>951</width>
-        <height>531</height>
+        <height>521</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -52,11 +52,15 @@
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
-          <x>410</x>
+          <x>480</x>
           <y>60</y>
           <width>47</width>
           <height>16</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>prenom</string>
@@ -70,6 +74,10 @@
           <width>91</width>
           <height>16</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>numordonnance</string>
@@ -110,6 +118,10 @@
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>medicamen1</string>
         </property>
@@ -122,6 +134,10 @@
           <width>91</width>
           <height>16</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>medicament2</string>
@@ -136,6 +152,10 @@
           <height>31</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>medicamnet3</string>
         </property>
@@ -143,11 +163,15 @@
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>260</x>
           <y>60</y>
           <width>55</width>
           <height>16</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>nom</string>
@@ -162,6 +186,10 @@
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>nomdocteur</string>
         </property>
@@ -174,6 +202,10 @@
           <width>91</width>
           <height>20</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>medicament4</string>
@@ -202,7 +234,7 @@
        <widget class="QLineEdit" name="nom">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>330</x>
           <y>60</y>
           <width>113</width>
           <height>22</height>
@@ -212,7 +244,7 @@
        <widget class="QLineEdit" name="prenom">
         <property name="geometry">
          <rect>
-          <x>480</x>
+          <x>550</x>
           <y>60</y>
           <width>113</width>
           <height>22</height>
@@ -259,19 +291,67 @@
          </rect>
         </property>
        </widget>
-       <widget class="QPushButton" name="pdf">
+       <widget class="QLabel" name="picture">
         <property name="geometry">
          <rect>
-          <x>810</x>
-          <y>410</y>
-          <width>93</width>
-          <height>28</height>
+          <x>4</x>
+          <y>5</y>
+          <width>931</width>
+          <height>501</height>
          </rect>
         </property>
         <property name="text">
-         <string>imprimer</string>
+         <string/>
         </property>
        </widget>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>60</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>60</y>
+          <width>55</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>nump</string>
+        </property>
+       </widget>
+       <zorder>picture</zorder>
+       <zorder>label_2</zorder>
+       <zorder>label_3</zorder>
+       <zorder>pb_ajouter</zorder>
+       <zorder>pushButton</zorder>
+       <zorder>label_6</zorder>
+       <zorder>label_7</zorder>
+       <zorder>label_8</zorder>
+       <zorder>label</zorder>
+       <zorder>label_9</zorder>
+       <zorder>label_10</zorder>
+       <zorder>num</zorder>
+       <zorder>doc</zorder>
+       <zorder>nom</zorder>
+       <zorder>prenom</zorder>
+       <zorder>med1</zorder>
+       <zorder>med2</zorder>
+       <zorder>med3</zorder>
+       <zorder>med4</zorder>
+       <zorder>lineEdit</zorder>
+       <zorder>label_11</zorder>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -306,10 +386,45 @@
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
-         <string>numordo</string>
+         <string>numordonnance</string>
         </property>
        </widget>
+       <widget class="QLabel" name="picture_2">
+        <property name="geometry">
+         <rect>
+          <x>4</x>
+          <y>5</y>
+          <width>941</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pdf">
+        <property name="geometry">
+         <rect>
+          <x>750</x>
+          <y>440</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>imprimer</string>
+        </property>
+       </widget>
+       <zorder>picture_2</zorder>
+       <zorder>tabordo</zorder>
+       <zorder>numm</zorder>
+       <zorder>label_5</zorder>
+       <zorder>pdf</zorder>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -334,6 +449,10 @@
           <height>16</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>numordo</string>
         </property>
@@ -351,6 +470,23 @@
          <string>Supprimer</string>
         </property>
        </widget>
+       <widget class="QLabel" name="picture_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>5</y>
+          <width>941</width>
+          <height>491</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>picture_3</zorder>
+       <zorder>num_2</zorder>
+       <zorder>label_4</zorder>
+       <zorder>supprimer</zorder>
       </widget>
      </widget>
     </widget>

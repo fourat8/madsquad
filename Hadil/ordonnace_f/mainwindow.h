@@ -3,6 +3,7 @@
 #include "ordo.h"
 #include <QMainWindow>
 #include <QWidget>
+#include <QSound>
 namespace Ui {
 class MainWindow;
 }
@@ -42,6 +43,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
  ordo tmpordo;
+ QSound *son;
 };
 
 #endif // MAINWINDOW_H

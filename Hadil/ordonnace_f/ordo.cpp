@@ -12,9 +12,10 @@ ordo::ordo()
     medicament2="";
     medicament3="";
     medicament4="";
+    nump=0;
 
 }
- ordo::ordo(QString nom,QString prenom,QString nomdocteur,QString medicament1,QString medicament2,QString medicament3,QString medicament4,int numordonnance)
+ ordo::ordo(QString nom,QString prenom,QString nomdocteur,QString medicament1,QString medicament2,QString medicament3,QString medicament4,int numordonnance, int nump)
 {this->nom=nom;
     this->prenom=prenom;
     this->numordonnance=numordonnance;
@@ -23,6 +24,7 @@ ordo::ordo()
      this->medicament3=medicament3;
      this->medicament4=medicament4;
      this->nomdocteur=nomdocteur;
+     this->nump=nump;
 
 }
 QString ordo::get_nom(){return nom;}
@@ -33,13 +35,15 @@ QString ordo::get_medicament1(){return medicament1;}
 QString ordo::get_medicament2(){return medicament2;}
 QString ordo::get_medicament3(){return medicament3;}
 QString ordo::get_medicament4(){return medicament4;}
+int ordo::get_nump(){return nump;}
 
 bool ordo::ajouter()
 {
 QSqlQuery query;
 QString res= QString::number(numordonnance);
-query.prepare("INSERT INTO ordonnance (NOM , PRENOM , NOMDOCTEUR , MEDICAMENT1 , MEDICAMENT2 , MEDICAMENT3 , MEDICAMENT4 ,NUMORDONNANCE) "
-                    "VALUES (   :nom, :prenom, :nomdocteur, :medicament1,:medicament2 ,:medicament3,:medicament4, :numordonnance)");
+QString res2= QString::number(nump);
+query.prepare("INSERT INTO ordo (NOM , PRENOM , NOMDOCTEUR , MEDICAMENT1 , MEDICAMENT2 , MEDICAMENT3 , MEDICAMENT4 ,NUMORDONNANCE,NUMP) "
+                    "VALUES (   :nom, :prenom, :nomdocteur, :medicament1,:medicament2 ,:medicament3,:medicament4, :numordonnance , :nump)");
 
 
 query.bindValue(":nom", nom);
@@ -50,7 +54,7 @@ query.bindValue(":medicament2", medicament2);
 query.bindValue(":medicament3", medicament3);
 query.bindValue(":medicament4", medicament4);
 query.bindValue(":numordonnance", res);
-
+query.bindValue(":nump", res2);
 
 return    query.exec();
 }
@@ -59,7 +63,7 @@ return    query.exec();
     QSqlQueryModel * ordo::afficher()
     {QSqlQueryModel * model= new QSqlQueryModel();
 
-    model->setQuery("select * from ordonnance order by numordonnance asc ");
+    model->setQuery("select * from ordo order by  nom asc ");
      model->setHeaderData(0, Qt::Horizontal, QObject::tr("NOM"));
      model->setHeaderData(1, Qt::Horizontal, QObject::tr("PRENOM"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("NOMDOCTEUR"));
@@ -70,6 +74,7 @@ return    query.exec();
        model->setHeaderData(5, Qt::Horizontal, QObject::tr("MEDICAMENT3"));
         model->setHeaderData(6, Qt::Horizontal, QObject::tr("MEDICAMENT4"));
              model->setHeaderData(7, Qt::Horizontal, QObject::tr("NUMORDONNANCE"));
+              model->setHeaderData(8, Qt::Horizontal, QObject::tr("NUMPATIENT"));
         return model;
     }
 
@@ -81,7 +86,7 @@ return    query.exec();
     bool ordo::supprimer(int numordoo)
     {
     QSqlQuery query;
-    query.prepare("Delete from ordonnance where NUMORDONNANCE =:numordonnance ");
+    query.prepare("Delete from ordo where NUMORDONNANCE =:numordonnance ");
     query.bindValue(":numordonnance",numordoo);
     return    query.exec();
     }
@@ -90,7 +95,7 @@ return    query.exec();
     {
         QSqlQuery query;
 
-        query.prepare("UPDATE ordonnance SET   nom= :m, prenom= :p, nomdocteur= :d , medicament1= :a, medicament2= :b ,medicament3= :c,medicament4= :i where numordonnance=:o" );
+        query.prepare("UPDATE ordo SET   nom= :m, prenom= :p, nomdocteur= :d , medicament1= :a, medicament2= :b ,medicament3= :c,medicament4= :i where numordonnance=:o" );
 
 
         query.bindValue(":m", nom);
@@ -108,10 +113,10 @@ return    query.exec();
     QSqlQueryModel * ordo::afficher2(QString numordonnance)
    { QSqlQueryModel * model= new QSqlQueryModel();
         //QString res= QString::number(numordonnance);
-        QString cherche="Select * from ordonnance where numordonnance like '"+numordonnance+"%'";
+        QString cherche="Select * from ordo where numordonnance like '"+numordonnance+"%'";
     if (numordonnance=="")
     {
-        model->setQuery("select * from ordonnance ");
+        model->setQuery("select * from ordo ");
 
     }
     else
@@ -130,6 +135,7 @@ return    query.exec();
          model->setHeaderData(5, Qt::Horizontal, QObject::tr("medicament3"));
           model->setHeaderData(6, Qt::Horizontal, QObject::tr("medicament4"));
             model->setHeaderData(7, Qt::Horizontal, QObject::tr("numordonnance"));
+             model->setHeaderData(8, Qt::Horizontal, QObject::tr("nump"));
 
         return model;
 

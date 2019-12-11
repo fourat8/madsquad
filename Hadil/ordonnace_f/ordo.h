@@ -7,13 +7,14 @@
 class ordo
 {
 private:
-     int numordonnance;
+     int numordonnance , nump;
     QString nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4;
 
 public:
    ordo();
-   ordo(QString,QString,QString,QString,QString,QString,QString,int);
+   ordo(QString,QString,QString,QString,QString,QString,QString,int, int);
       int get_numordonnance();
+      int get_nump();
    QString get_nom();
     QString get_prenom();
     QString get_nomdocteur();

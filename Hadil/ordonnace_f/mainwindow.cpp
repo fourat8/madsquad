@@ -16,6 +16,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 ui->setupUi(this);
 ui->tabordo->setModel(tmpordo.afficher());
+QPixmap pic(":/img/doctor-gp-netherlands.jpg");
+ui->picture->setPixmap(pic);
+ui->picture_2->setPixmap(pic);
+ui->picture_3->setPixmap(pic);
+son=new QSound(":/son/1100.wav");
+
 
 }
 
@@ -27,6 +33,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pb_ajouter_clicked()
 {
     int numorodonnance= ui->num->text().toInt();
+     int nump= ui->lineEdit->text().toInt();
     QString nomdocteur= ui->doc->text();
     QString nom= ui->nom->text();
     QString prenom= ui->prenom->text();
@@ -34,10 +41,12 @@ void MainWindow::on_pb_ajouter_clicked()
      QString medicament2= ui->med2->text();
      QString medicament3= ui->med3->text();
      QString medicament4= ui->med4->text();
-ordo  o(nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4,numorodonnance);
+ordo  o(nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4,numorodonnance,nump);
   bool test=o.ajouter();
   if(test)
-{ui->tabordo->setModel(tmpordo.afficher());//refresh
+{
+      son->play();
+      ui->tabordo->setModel(tmpordo.afficher());//refresh
 QMessageBox::information(nullptr, QObject::tr("Ajouter une ordonnance"),QObject::tr("ordonnance ajoutée.\n""Click Cancel to exit."), QMessageBox::Cancel);
 
 }
@@ -55,7 +64,9 @@ void MainWindow::on_supprimer_clicked()
     bool test=tmpordo.supprimer(numordonnance);
 
     if(test)
-    {ui->tabordo->setModel(tmpordo.afficher());//refresh
+    {      son->play();
+
+        ui->tabordo->setModel(tmpordo.afficher());//refresh
         QMessageBox::information(nullptr, QObject::tr("Supprimer une ordonnance"),
                     QObject::tr("ordonnance supprimé.\n"), QMessageBox::Ok);
 
@@ -81,12 +92,15 @@ void MainWindow::on_pushButton_clicked()
      QString medicament2= ui->med2->text();
      QString medicament3= ui->med3->text();
      QString medicament4= ui->med4->text();
+    int nump= ui->lineEdit->text().toInt();
 
-      ordo  o(nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4,numorodonnance);
+      ordo  o(nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4,numorodonnance, nump);
       o.modifier(nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4);
 
        if(o.modifier(nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4))
-       {   ui->tabordo->setModel(o.afficher());
+       {        son->play();
+
+           ui->tabordo->setModel(o.afficher());
            QMessageBox::information(nullptr, QObject::tr("modifier une ordonnance"),
                                QObject::tr("info d'ordonnance modifié.\n"
                                            "Click Cancel to exit."), QMessageBox::Cancel);
@@ -129,7 +143,7 @@ void MainWindow::on_pdf_clicked()
                 << "<title>ERP - COMmANDE LIST<title>\n "
                 << "</head>\n"
                 "<body bgcolor=#ffffff link=#5000A0>\n"
-                "<h1 style=\"text-align: center;\"><strong> ******LISTE DES Réservations ****** "+TT+"</strong></h1>"
+                "<h1 style=\"text-align: center;\"><strong> ******ordonnance ****** "+TT+"</strong></h1>"
                 "<table style=\"text-align: center; font-size: 20px;\" border=1>\n "
                   "</br> </br>";
             // headers

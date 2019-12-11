@@ -36,14 +36,14 @@
         <x>0</x>
         <y>0</y>
         <width>531</width>
-        <height>391</height>
+        <height>291</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -58,6 +58,10 @@
           <height>16</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>nom</string>
         </property>
@@ -71,6 +75,10 @@
           <height>13</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>prenom</string>
         </property>
@@ -83,6 +91,10 @@
           <width>47</width>
           <height>13</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>id</string>
@@ -144,6 +156,28 @@
          <string>modifier</string>
         </property>
        </widget>
+       <widget class="QLabel" name="picture">
+        <property name="geometry">
+         <rect>
+          <x>-20</x>
+          <y>0</y>
+          <width>521</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>picture</zorder>
+       <zorder>label</zorder>
+       <zorder>label_2</zorder>
+       <zorder>label_3</zorder>
+       <zorder>lineEdit_id</zorder>
+       <zorder>lineEdit_nom</zorder>
+       <zorder>lineEdit_prenom</zorder>
+       <zorder>pb_ajouter</zorder>
+       <zorder>pushButton</zorder>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -178,10 +212,31 @@
           <height>20</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>identifiant </string>
         </property>
        </widget>
+       <widget class="QLabel" name="picture_2">
+        <property name="geometry">
+         <rect>
+          <x>4</x>
+          <y>5</y>
+          <width>521</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>picture_2</zorder>
+       <zorder>tabdocteur</zorder>
+       <zorder>lineEdit</zorder>
+       <zorder>label_5</zorder>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -206,6 +261,10 @@
           <height>16</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(85, 0, 255);
+font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
         <property name="text">
          <string>Identifiant</string>
         </property>
@@ -223,6 +282,23 @@
          <string>Supprimer</string>
         </property>
        </widget>
+       <widget class="QLabel" name="picture_3">
+        <property name="geometry">
+         <rect>
+          <x>4</x>
+          <y>0</y>
+          <width>521</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <zorder>picture_3</zorder>
+       <zorder>lineEdit_id_2</zorder>
+       <zorder>label_4</zorder>
+       <zorder>supprimer</zorder>
       </widget>
      </widget>
     </widget>

@@ -9,6 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 ui->setupUi(this);
 ui->tabdocteur->setModel(tmpdocteur.afficher());
+QPixmap pic(":/img/doctor-gp-netherlands.jpg");
+ui->picture->setPixmap(pic);
+ui->picture_2->setPixmap(pic);
+ ui->picture_3->setPixmap(pic);
 
 }
 
