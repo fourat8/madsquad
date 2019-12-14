@@ -108,7 +108,7 @@ void commande::on_pushButton_supprimer_C_clicked()
             QMessageBox::critical(nullptr, QObject::tr("Supprimer une commande"),
                         QObject::tr("Erreur !.\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
-     QSqlQueryModel *   model=c.afficher();
+     //QSqlQueryModel *   model=c.afficher();
 }
 
 void commande::on_pushButton_chercherD_clicked()

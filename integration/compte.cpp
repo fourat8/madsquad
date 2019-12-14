@@ -20,14 +20,13 @@ compte::compte(QString nom,QString prenom,QString id,QString mdp, QString daate,
 bool compte::ajouter_compte()
 {
 QSqlQuery query;
-query.prepare("INSERT INTO compte (nom, prenom, id, mdp, daate,statut) VALUES (:nom, :prenom, :id, :mdp, :daate, :statut)");
+query.prepare("INSERT INTO compte (nom, prenom, nomcom, mdp, daate,statut) VALUES (:nom, :prenom, :id, :mdp, :daate, :statut)");
 query.bindValue(":nom", nom);
 query.bindValue(":prenom", prenom);
 query.bindValue(":id", id);
 query.bindValue(":mdp", mdp);
 query.bindValue(":daate", daate);
 query.bindValue(":statut", statut);
-
 return    query.exec();
 }
 
@@ -41,12 +40,12 @@ bool compte::verifier_compte(QString id, QString mdp)
         return  false;
     }
 
-    query.exec("SELECT mdp,id FROM compte WHERE"
-                  " id= '"+id+"' AND"
+    query.exec("SELECT mdp,nomcom FROM compte WHERE"
+                  " nomcom= '"+id+"' AND"
                   " mdp= '"+mdp+"'");
     while (query.next()) {
        mdpbd = query.value("mdp").toString();
-       idbd= query.value("id").toString();
+       idbd= query.value("nomcom").toString();
         }
     if (mdpbd==mdp && id==idbd)
     {
@@ -65,7 +64,7 @@ int compte::verifier_statut(QString id, QString mdp)
     QSqlQuery query;
     QString statut;
     query.exec("SELECT statut FROM compte WHERE"
-               " id= '"+id+"' AND"
+               " nomcom= '"+id+"' AND"
                " mdp= '"+mdp+"'");
     while (query.next())
     {
@@ -105,7 +104,7 @@ if (ref=="")
 }
 else
 {
-    QString cherche="Select * from compte where id = '"+ref+"' or mdp = '"+ref+"' or nom = '"+ref+"' or statut = '"+ref+"' or daate = '"+ref+"'";
+    QString cherche="Select * from compte where nomcom = '"+ref+"' or mdp = '"+ref+"' or nom = '"+ref+"' or statut = '"+ref+"' or daate = '"+ref+"'";
 
 }
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("Nom"));
@@ -121,7 +120,7 @@ bool compte::supprimer(QString nom)
 {
 QSqlQuery query;
 //QString res= QString::number(idd);
-query.prepare("Delete from compte where nom = '"+nom+"' or prenom ='"+nom+"' or id='"+nom+"' or mdp ='"+nom+"' or statut ='"+nom+"'" );
+query.prepare("Delete from compte where nom = '"+nom+"' or prenom ='"+nom+"' or nomcom='"+nom+"' or mdp ='"+nom+"' or statut ='"+nom+"'" );
 query.bindValue(":nom", nom);
 return    query.exec();
 }

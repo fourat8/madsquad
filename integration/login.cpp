@@ -5,6 +5,7 @@
 #include "compte.h"
 #include "crud_materiel.h"
 #include "compte_medecin.h"
+#include <QDebug>
 
 login::login(QWidget *parent) :
     QDialog(parent),
@@ -39,6 +40,7 @@ void login::on_pushButton_2_clicked()
         test=true;
     }
 
+
     if (test)
     {
         son->play();
@@ -49,11 +51,11 @@ void login::on_pushButton_2_clicked()
             Compte_Medecin = new compte_medecin();
             Compte_Medecin->show();
         }
-        else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
+       /* else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
         {
             Secretaire=new secretaire();
             Secretaire->show();
-        }
+        }*/
         else if (tmpcompte.verifier_statut(nomcom,mdp)==3)
         {
             Crud_Materiel=new crud_materiel();
@@ -101,11 +103,11 @@ void login::on_lineEdit_id_returnPressed()
             Compte_Medecin = new compte_medecin();
             Compte_Medecin->show();
         }
-        else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
+       /* else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
         {
             Secretaire=new secretaire();
             Secretaire->show();
-        }
+        }*/
         else if (tmpcompte.verifier_statut(nomcom,mdp)==3)
         {
             Crud_Materiel=new crud_materiel();
@@ -147,11 +149,11 @@ void login::on_lineEdit_mdp_returnPressed()
                 Compte_Medecin = new compte_medecin();
                 Compte_Medecin->show();
             }
-            else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
+            /*else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
             {
                 Secretaire=new secretaire();
                 Secretaire->show();
-            }
+            }*/
             else if (tmpcompte.verifier_statut(nomcom,mdp)==3)
             {
                 Crud_Materiel=new crud_materiel();

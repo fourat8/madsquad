@@ -6,7 +6,6 @@
 #include "compte.h"
 #include "connexion.h"
 #include "admin.h"
-#include "secretaire.h"
 #include "amedicament.h"
 #include "compte_medecin.h"
 #include <QSound>
@@ -40,7 +39,6 @@ private:
     login *Login;
     Connexion connexion;
     admin *Admin;
-    secretaire *Secretaire;
     compte_medecin *Compte_Medecin;
     QSound *son;
     Amedicament *amedicament;

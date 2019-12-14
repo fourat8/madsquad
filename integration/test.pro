@@ -1,6 +1,7 @@
-QT       += core gui sql
+QT       += core gui
 QT       += network
 QT      += printsupport
+QT      += sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
 CONFIG += c++11
@@ -34,9 +35,7 @@ SOURCES += \
     modification.cpp \
     ordo.cpp \
     patient.cpp \
-    rdv.cpp \
-    secretaire.cpp \
-    traitement.cpp
+    rdv.cpp
 
 HEADERS += \
     admin.h \
@@ -55,9 +54,7 @@ HEADERS += \
     modification.h \
     ordo.h \
     patient.h \
-    rdv.h \
-    secretaire.h \
-    traitement.h
+    rdv.h
 
 FORMS += \
     admin.ui \
@@ -67,8 +64,7 @@ FORMS += \
     creer_compte.ui \
     crud_materiel.ui \
     login.ui \
-    modification.ui \
-    secretaire.ui
+    modification.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
