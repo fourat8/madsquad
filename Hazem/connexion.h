@@ -9,7 +9,7 @@ private:
 public:
     Connexion();
     bool ouvrirConnexion();
-    void fermerConnexion();
+
 
 };
 

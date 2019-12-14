@@ -5,6 +5,9 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+QT       +=multimedia
+QT       += network
+QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,17 +28,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    chamb.cpp \
     chambre.cpp \
         main.cpp \
         mainwindow.cpp \
     connexion.cpp
 
 HEADERS += \
+    chamb.h \
     chambre.h \
         mainwindow.h \
     connexion.h
 
 FORMS += \
+        chamb.ui \
         mainwindow.ui
 
 # Default rules for deployment.
