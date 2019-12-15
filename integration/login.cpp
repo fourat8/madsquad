@@ -4,7 +4,7 @@
 #include "connexion.h"
 #include "compte.h"
 #include "crud_materiel.h"
-#include "compte_medecin.h"
+#include "ordonance.h"
 #include <QDebug>
 
 login::login(QWidget *parent) :
@@ -48,10 +48,10 @@ void login::on_pushButton_2_clicked()
         close();
         if (tmpcompte.verifier_statut(nomcom,mdp)==1)
         {
-            Compte_Medecin = new compte_medecin();
+            Compte_Medecin = new ordonance();
             Compte_Medecin->show();
         }
-       /* else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
+        /*else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
         {
             Secretaire=new secretaire();
             Secretaire->show();
@@ -100,7 +100,7 @@ void login::on_lineEdit_id_returnPressed()
         close();
         if (tmpcompte.verifier_statut(nomcom,mdp)==1)
         {
-            Compte_Medecin = new compte_medecin();
+            Compte_Medecin = new ordonance();
             Compte_Medecin->show();
         }
        /* else if (tmpcompte.verifier_statut(nomcom,mdp)==2)
@@ -146,7 +146,7 @@ void login::on_lineEdit_mdp_returnPressed()
             close();
             if (tmpcompte.verifier_statut(nomcom,mdp)==1)
             {
-                Compte_Medecin = new compte_medecin();
+                Compte_Medecin = new ordonance();
                 Compte_Medecin->show();
             }
             /*else if (tmpcompte.verifier_statut(nomcom,mdp)==2)

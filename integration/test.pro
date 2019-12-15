@@ -23,7 +23,6 @@ SOURCES += \
     commande.cpp \
     commande1.cpp \
     compte.cpp \
-    compte_medecin.cpp \
     connexion.cpp \
     creer_compte.cpp \
     crud_materiel.cpp \
@@ -34,6 +33,7 @@ SOURCES += \
     medicament.cpp \
     modification.cpp \
     ordo.cpp \
+    ordonance.cpp \
     patient.cpp \
     rdv.cpp
 
@@ -43,7 +43,6 @@ HEADERS += \
     commande.h \
     commande1.h \
     compte.h \
-    compte_medecin.h \
     connexion.h \
     creer_compte.h \
     crud_materiel.h \
@@ -53,6 +52,7 @@ HEADERS += \
     medicament.h \
     modification.h \
     ordo.h \
+    ordonance.h \
     patient.h \
     rdv.h
 
@@ -60,11 +60,11 @@ FORMS += \
     admin.ui \
     amedicament.ui \
     commande.ui \
-    compte_medecin.ui \
     creer_compte.ui \
     crud_materiel.ui \
     login.ui \
-    modification.ui
+    modification.ui \
+    ordonance.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

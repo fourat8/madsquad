@@ -7,7 +7,7 @@
 #include "connexion.h"
 #include "admin.h"
 #include "amedicament.h"
-#include "compte_medecin.h"
+#include "ordonance.h"
 #include <QSound>
 //#include "crud_docteur.h"
 
@@ -39,9 +39,10 @@ private:
     login *Login;
     Connexion connexion;
     admin *Admin;
-    compte_medecin *Compte_Medecin;
+    ordonance *Compte_Medecin;
     QSound *son;
     Amedicament *amedicament;
+
 
 
 };

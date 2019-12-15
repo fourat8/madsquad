@@ -8,30 +8,23 @@ class ordo
 {
 private:
      int numordonnance , nump;
-    QString nom,prenom,nomdocteur,medicament1,medicament2,medicament3,medicament4;
+    QString nom,prenom,nomdocteur,medicament;
 
 public:
    ordo();
-   ordo(QString,QString,QString,QString,QString,QString,QString,int, int);
+   ordo(int, int,QString,QString,QString,QString);
       int get_numordonnance();
       int get_nump();
    QString get_nom();
     QString get_prenom();
     QString get_nomdocteur();
-    QString get_medicament1();
-    QString get_medicament2();
-    QString get_medicament3();
-    QString get_medicament4();
-
-
-
-
+    QString get_medicament();
 
     bool ajouter();
     QSqlQueryModel * afficher();
       QSqlQueryModel * afficher2(QString);
     bool supprimer(int);
-    bool modifier(QString,QString,QString,QString,QString,QString,QString);
+    bool modifier(QString,QString,QString,QString);
 
 
 };
