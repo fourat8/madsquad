@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/doctor-gp-netherlands.jpg</file>
+        <file>img/pic.jpg</file>
+        <file>img/medical.jpg</file>
+        <file>img/ordonnance.jfif</file>
+        <file>img/doctor-gp-netherlands2.jpg</file>
+    </qresource>
+    <qresource prefix="/son">
+        <file>son/1100.wav</file>
+        <file>son/click.mp3</file>
+    </qresource>
+</RCC>
